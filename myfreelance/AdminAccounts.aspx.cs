@@ -45,8 +45,12 @@ namespace myfreelance
 
             if (result > 0)
             {
-                Response.Write("<script>alert('Account Remove successfully');</script>");
-                Response.Redirect("AdminAccountPanel.aspx");
+                Response.Write(@"
+     <script>
+        alert('Account removed successfully.');
+        window.location = 'AdminAccountPanel.aspx" + @"';
+    </script>
+");
             }
             else
             {
