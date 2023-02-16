@@ -18,6 +18,7 @@ namespace myfreelance
                 update_id.Enabled = false;
                 update_role.Enabled = false;
                 update_license.Enabled = false;
+                update_email.Enabled = false;
                 Account acct = new Account();
                 string loginID = Request.QueryString["loginID"].ToString();
                 accd = acct.RetriveAccount(loginID);
@@ -84,8 +85,12 @@ namespace myfreelance
             }
             if (result > 0)
             {                   
-                Response.Write("<script>alert('Account updated successfully');</script>");
-                Response.Redirect("LoginProfile.aspx?loginID=" + uloginID);
+                Response.Write(@"
+     <script>
+        alert('Account updated successfully.');
+        window.location = 'LoginProfile.aspx?loginID=" + uloginID +  @"';
+    </script>
+");
             }
             else
             {
