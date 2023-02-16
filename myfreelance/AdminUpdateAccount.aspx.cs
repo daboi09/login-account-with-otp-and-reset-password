@@ -85,8 +85,12 @@ namespace myfreelance
             }
             if (result > 0)
             {
-                Response.Write("<script>alert('Account updated successfully');</script>");
-                Response.Redirect("AdminAccounts.aspx?loginID=" + uloginID);
+                Response.Write(@"
+     <script>
+        alert('Account updated successfully.');
+        window.location = 'AdminAccounts.aspx?loginID=" + uloginID + @"';
+    </script>
+");
             }
             else
             {
